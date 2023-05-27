@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{% static 'place_remember/css/style.css' %}">
+</head>
+
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        TravelMemo
+      </a>
+      {% block extraheader %}
+      {% endblock %}
+    </div>
+  </nav>
+</header>
+
+<body>
+  <section class="container text-center">
+    {% block content %}
+    {% endblock %}
+  </section>
+</body>
+
+<footer>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <span class="copyright">©Все права защищены</span>
+    </div>
+  </nav>
+</footer>
+
+</html>

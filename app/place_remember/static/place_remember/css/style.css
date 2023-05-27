@@ -1,0 +1,17 @@
+.text {
+  padding: 50px 0 50px 0;
+  max-width: 60%; 
+  margin: 0 auto;
+  margin-bottom: 10%;
+}
+footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+}
+.no-remember{
+  font-size: 36px;
+  color: gray;
+  margin-top: 25%;
+}

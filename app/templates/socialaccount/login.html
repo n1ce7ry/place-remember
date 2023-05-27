@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+{% if process == "connect" %}
+<h1>{% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}</h1>
+
+<p>{% blocktrans with provider.name as provider %}You are about to connect a new third party account from {{ provider }}.{% endblocktrans %}</p>
+{% else %}
+<h1 style="margin-top:20%; margin-bottom: 2%;">{% blocktrans with provider.name as provider %} Войдите с помощью {{ provider }}{% endblocktrans %}</h1>
+
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-primary btn-lg" type="submit">{% trans "Продолжить" %}</button>
+</form>
+{% endblock %}

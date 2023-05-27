@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block extraheader %}
+
+  {% if user.is_authenticated %}
+
+    <a href="{% url 'account_logout' %}" role="button" class="btn btn-primary google">Logout</a>
+    
+  {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+  {% if user.is_authenticated %}
+
+  <p class="no-remember">У вас нет ни одного воспоминания</p>
+
+  {% else %}
+
+    <p class="text-center text lh-lg">
+      "TravelMemo" – это онлайн-сервис, где вы можете хранить и делиться впечатлениями о любимых местах, которые вы посетили. Загружайте свои фотографии, пишите заметки, оставляйте отзывы и рекомендации для других пользователей. Просматривайте места, которые хотите посетить, а также получайте советы о том, куда стоит отправиться в следующей поездке.
+      С TravelMemo вы всегда будете иметь доступ к вашим путешественническим воспоминаниям, которые вы можете легко поделиться со своими друзьями и близкими. Наш сервис также позволит вам находить новые места, которые вы еще не посетили, а также вдохновляться идеями для будущих путешествий.
+      Присоединитесь к TravelMemo уже сегодня и сохраните ваши путешествия на всю жизнь!
+    </p>
+    <div>
+      <a role="button" class="btn btn-primary btn-lg google">Login with Google</a>
+      <a href="{% url 'vk_login' %}" role="button" class="btn btn-primary btn-lg">Login with VK</a>
+    </div>
+
+  {% endif %}
+  
+{% endblock %}
