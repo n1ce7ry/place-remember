@@ -1,17 +1,40 @@
-.text {
-  padding: 50px 0 50px 0;
-  max-width: 60%; 
-  margin: 0 auto;
-  margin-bottom: 10%;
-}
 footer {
   position:fixed;
   left:0px;
   bottom:0px;
   width:100%;
 }
+.text {
+  padding: 50px 0 50px 0;
+  max-width: 60%; 
+  margin: 0 auto;
+  margin-bottom: 1%;
+  font-size: 18px;
+}
+.title {
+  margin-top: 3%;
+  padding: 30px 0 0 50px;
+}
 .no-remember{
-  font-size: 36px;
+  font-size: 32px;
   color: gray;
-  margin-top: 25%;
+  margin-top: 23%;
+}
+.logo {
+  margin-right: 70%;
+}
+.avatar {
+  border-radius: 25px;
+  max-width: 40px;
+  margin-left: 72%;
+}
+.username {
+  font-weight: bold;
+}
+.card-view {
+  box-shadow: 2px 2px 5px rgb(20 29 61 / 15%), -2px -2px 5px rgb(20 29 61 / 15%);
+  border-radius: 40px;
+  height: 75vh;
+  width: 85%;
+  margin: 70px auto 70px auto;
 }
