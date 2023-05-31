@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+{% endblock %}
+
+{% block header %}
+
+  {% if provider == "google" %}
+    <img class="avatar" src="{{ user_info.picture }}" alt="avatar">
+    <span class="username">{{ user.first_name }}</span>
+  {% else %}
+    <img class="avatar" src="{{ user_info.photo }}" alt="avatar">
+    <span class="username">{{ user.first_name }}</span>
+  {% endif %}
+
+  <a href="{% url 'account_logout' %}" role="button" class="btn btn-outline-primary">Выйти</a>
+
+{% endblock %}
+
+
+{% block content %}
+<h1 class="form-title">Добавьте воспоминание</h1>
+
+<form class="form" method="post">
+  {% csrf_token %}
+
+  <div class="error">{{error}}</div>
+
+  {{ form.latitude }}
+  {{ form.longitude }}
+  
+  <div class="mb-3">
+    <label for="{{ form.name.id_for_label }}" class="form-label">Название</label>
+    {{ form.name }}
+  </div>
+
+  <div class="mb-3">
+    <label for="map" class="form-label">Выберите место</label>
+    <div id="map"></div>
+  </div>
+
+  <div class="mb-3">
+    <label for="{{ form.discription.id_for_label }}" class="form-label">Ваше воспоминание</label>
+    {{ form.description }}
+  </div>
+
+  <button class="btn btn-primary btn-lg" id="blablabla" type="submit">Сохранить</button>
+</form>
+
+
+<script type="text/javascript">
+  
+  var map = L.map('map').setView([56.8519, 60.6122], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+      '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    maxZoom: 19
+  }).addTo(map);
+
+  var marker = L.marker([0.0, 0.0]).addTo(map);
+
+  map.on('click', function (e) {
+    marker.setLatLng(e.latlng);
+
+    document.getElementById('id_latitude').value = e.latlng.lat.toFixed(6);
+    document.getElementById('id_longitude').value = e.latlng.lng.toFixed(6);
+  });
+
+
+</script>
+{% endblock %}

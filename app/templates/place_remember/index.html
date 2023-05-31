@@ -12,7 +12,7 @@
       <span class="username">{{ user.first_name }}</span>
     {% endif %}
 
-    <a href="{% url 'account_logout' %}" role="button" class="btn btn-outline-primary">Logout</a>
+    <a href="{% url 'account_logout' %}" role="button" class="btn btn-outline-primary">Выйти</a>
     
   {% endif %}
 
@@ -22,11 +22,30 @@
 {% block content %}
 
   {% if user.is_authenticated %}
-  <div class="card-view">
-    <h1 class="text-start title">Ваши воспоминания:</h1>
+    <div class="card-view">
+      <div class="card-view__top">
+        <h1 class="text-start title">Ваши воспоминания:</h1>
+        <a href="{% url 'add_memory' %}" role="button" class="btn btn-primary btn-lg add-btn">Добавить</a>
+      </div>
 
-    <p class="text-center no-remember">У вас нет ни одного воспоминания</p>
-  </div>
+      {% if memory_data %}
+      <div class="card-group">
+    
+        {% for memory in memory_data %}
+          <div class="card text-start" style="width: 10rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{ memory.name }}</h5>
+              <p class="card-text">{{ memory.description }}</p>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+      {% else %}
+          <p class="text-center no-remember">У вас нет ни одного воспоминания</p>
+      {% endif %}
+
+    </div>
 
   {% else %}
 

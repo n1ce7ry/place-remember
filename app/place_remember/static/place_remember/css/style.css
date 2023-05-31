@@ -1,8 +1,12 @@
 footer {
-  position:fixed;
+  align-items: center;
+  position: fixed;
   left:0px;
   bottom:0px;
   width:100%;
+}
+.copyright {
+  padding: 7px 0;
 }
 .text {
   padding: 50px 0 50px 0;
@@ -15,10 +19,13 @@ footer {
   margin-top: 3%;
   padding: 30px 0 0 50px;
 }
+.form-title {
+  margin: 40px 0;
+}
 .no-remember{
   font-size: 32px;
   color: gray;
-  margin-top: 23%;
+  margin-top: 18%;
 }
 .logo {
   margin-right: 70%;
@@ -31,10 +38,47 @@ footer {
 .username {
   font-weight: bold;
 }
+.card {
+    box-shadow: 2px 2px 5px rgb(20 29 61 / 15%), -2px -2px 5px rgb(20 29 61 / 15%);
+    margin: 47px;
+}
 .card-view {
   box-shadow: 2px 2px 5px rgb(20 29 61 / 15%), -2px -2px 5px rgb(20 29 61 / 15%);
   border-radius: 40px;
   height: 75vh;
   width: 85%;
-  margin: 70px auto 70px auto;
+  margin: 50px auto 70px auto;
+}
+#map {
+  height: 400px;
+  width: 100%;
+  margin: 0px auto;
+  margin-bottom: 30px;
+}
+.form {
+  max-width: 40%;
+  margin: 30px auto;
+  padding-bottom: 5%;
+}
+.mb-3 {
+  text-align: left;
+}
+.card-view__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-btn {
+  margin: 54px 50px 0 0;
+}
+.error {
+  color: red;
+}
+@media (max-width: 1200px) {
+  .avatar {
+    margin-left: 68%;
+  }
+  .no-remember {
+    margin-top: 25%;
+  }
 }
