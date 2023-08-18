@@ -57,6 +57,23 @@ INSTALLED_APPS = [
     'place_remember.apps.PlaceRememberConfig'
 ]
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'APP': {
+            'client_id': os.getenv("GOOGLE_CLIENT_ID"),
+            'secret': os.getenv("GOOGLE_SECRET"),
+            'key': ''
+        }
+    },
+    'vk': {
+        'APP': {
+            'client_id': os.getenv("VK_CLIENT_ID"),
+            'secret': os.getenv("VK_SECRET"),
+            'key': os.getenv("VK_KEY")
+        }
+    }
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

@@ -1,5 +1,5 @@
 from django.db import models
-from allauth.socialaccount.models import SocialAccount
+from django.contrib.auth.models import User
 
 
 class Memory(models.Model):
@@ -7,7 +7,7 @@ class Memory(models.Model):
     description = models.TextField(verbose_name="Воспоминание")
     latitude = models.FloatField(verbose_name="Широта")
     longitude = models.FloatField(verbose_name="Долгота")
-    user_id = models.ForeignKey(SocialAccount, on_delete=models.CASCADE)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

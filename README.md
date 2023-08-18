@@ -20,18 +20,24 @@ poetry shell
 poetry install
 ```
 
-Or by using the pip
+Edit env.example, rename it to env.sh, and run it:
 ```bash
-cd place-remember
-python3 -m venv venv
-pip install django==4.2.1; pip install django-allauth==0.54.0
+vim env.example
+mv env.example env.sh
+. ./env.sh
 ```
 
-Run server with secret key
+Apply migrations
 ```bash
 cd app
-SECRET_KEY="<SECRET_KEY>" python3 manage.py runserver
+python3 manage.py migrate
 ```
 
-## Not implemented
+Run server 
+```bash
+python3 manage.py runserver
+```
+
+## TO DO:
 * Unit tests 
+* There is an error when you access the site through the admin  
